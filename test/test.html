@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js'></script>
+    <script type='text/javascript' src='http://underscorejs.org/underscore.js'></script>
+    <script type='text/javascript' src='../src/combo.js'></script>
+    <script>
+      $(function() {
+        comboSetup($('#test'), $('#messages'));
+        addCheckbox('test 1', 3);
+        addCheckbox('test 2', 4);
+        addCheckbox('test 3', 5);
+        addCheckbox('test 4', 6);
+
+        addRule([3], 'test 3 is checked');
+        addRule([4], 'test 4 is checked');
+        addRule([5], 'test 5 is checked');
+        addRule([6], 'test 6 is checked');
+        addRule([3, 4], 'test 3 and 4 are checked');
+        addRule([3, 5], 'test 3 and 5 are checked');
+      })
+    </script>
+  </head>
+  <body>
+    <div id='test'></div>
+    <ul id='messages'></ul>
+  </body>
+</html>
