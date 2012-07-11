@@ -27,8 +27,8 @@ $(function() {
   }
 
   match = function(checked, conditions) {
-    if (checked.length > conditions.length) return false;
-    var len = checked.length;
+    if (checked.length != conditions.length) return false;
+    var len = conditions.length;
     var count = 0;
     _.each(checked, function(value) {
       if (conditions.indexOf(value) > -1) {
@@ -44,9 +44,9 @@ $(function() {
     messages.empty();
 
     checks = checked();
-    _.each(rules, function(value) {
-      if (match(checks, value['conds'])) {
-        messages.append('<li>' + value['msg'] + '</li>');
+    _.each(rules, function(rule) {
+      if (match(checks, rule['conds'])) {
+        messages.append('<li>' + rule['msg'] + '</li>');
       }
     });
   }
