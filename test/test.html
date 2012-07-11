@@ -7,11 +7,14 @@
     <script>
       $(function() {
         comboSetup($('#test'), $('#messages'));
+
+        // the second argument is the id for this checkbox, it has to be a number without quotes (not strings), but they don't have to be unique (to act as a group)
         addCheckbox('test 1', 3);
         addCheckbox('test 2', 4);
         addCheckbox('test 3', 5);
         addCheckbox('test 4', 6);
 
+        // each rule is matched exactly against the checked checkboxes on the page and only show those messages
         addRule([3], 'test 3 is checked');
         addRule([4], 'test 4 is checked');
         addRule([5], 'test 5 is checked');
@@ -22,6 +25,7 @@
     </script>
   </head>
   <body>
+    <!-- don't need to change anything here, just need a div to fold the checkboxes and a ul to hold a bullet point of messages -->
     <div id='test'></div>
     <ul id='messages'></ul>
   </body>
